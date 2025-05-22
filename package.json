@@ -26,7 +26,7 @@
     "build"
   ],
   "scripts": {
-    "prepare": "npm run build:types && npm run build:es2015",
+    "prepare": "npm run build:types && npm run build:cjs && npm run build:esm5 && npm run build:es2015",
     "build": "npm run build:cjs",
     "build:clean": "rimraf build",
     "build:es2015": "tsc --project tsconfig.prod.esm2015.json",
