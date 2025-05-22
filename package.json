@@ -6,10 +6,10 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "sideEffects": false,
-  "main": "./cjs/index.js",
-  "module": "./esm5/index.js",
-  "es2015": "./esm2015/index.js",
-  "types": "./types/index.d.ts",
+  "main": "build/cjs/index.js",
+  "module": "build/esm5/index.js",
+  "es2015": "build/esm2015/index.js",
+  "types": "build/types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/nestjs/class-transformer.git"
@@ -21,6 +21,9 @@
     "typescript",
     "object-to-class",
     "typescript-serializer"
+  ],
+  "files": [
+    "build"
   ],
   "scripts": {
     "prepare": "npm run build:types && npm run build:es2015",
