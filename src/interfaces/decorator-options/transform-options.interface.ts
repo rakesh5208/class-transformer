@@ -43,4 +43,9 @@ export interface TransformOptions {
    * Expose this property only when transforming from class instance to plain object.
    */
   toPlainOnly?: boolean;
+
+  /**
+   * Expose this property only when transforming from class instance to react-hook-form object.
+   */
+  toFormOnly?: boolean;
 }

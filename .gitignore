@@ -46,6 +46,10 @@ build/
 tmp/
 out-tsc/
 temp
+cjs/*
+esm5/*
+esm2015/*
+types/*
 
 # Files for playing around locally
 playground.ts

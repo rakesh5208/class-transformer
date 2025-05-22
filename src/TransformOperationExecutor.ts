@@ -206,7 +206,7 @@ export class TransformOperationExecutor {
         } else {
           newValue = {};
         }
-      }
+      }    
 
       // traverse over keys
       for (const key of keys) {
@@ -389,7 +389,8 @@ export class TransformOperationExecutor {
           );
           if (
             (this.transformationType === TransformationType.PLAIN_TO_CLASS ||
-              this.transformationType === TransformationType.CLASS_TO_CLASS) &&
+              this.transformationType === TransformationType.CLASS_TO_CLASS ||
+              this.transformationType === TransformationType.CLASS_TO_FORM) &&
             // eslint-disable-next-line @typescript-eslint/unbound-method
             ((descriptor && !descriptor.set) ||
               newValue[newValueKey] instanceof Function)
@@ -405,7 +406,9 @@ export class TransformOperationExecutor {
               : key;
           let finalValue;
 
-          if (this.transformationType === TransformationType.CLASS_TO_PLAIN) {
+          if (this.transformationType === TransformationType.CLASS_TO_PLAIN || 
+            this.transformationType === TransformationType.CLASS_TO_FORM
+          ) {
             // Get original value
             finalValue = value[transformKey];
             // Apply custom transformation
@@ -501,6 +504,8 @@ export class TransformOperationExecutor {
       key,
       this.transformationType
     );
+
+    // console.log("metadatas >>", metadatas)
 
     // apply versioning options
     if (this.options.version !== undefined) {

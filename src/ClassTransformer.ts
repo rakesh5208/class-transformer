@@ -41,6 +41,38 @@ export class ClassTransformer {
   }
 
   /**
+   * Converts class (constructor) object to plain (literal) object. Also works with arrays.
+   */
+  instanceToForm<T extends Record<string, any>>(
+    object: T,
+    options?: ClassTransformOptions
+  ): Record<string, any>;
+  instanceToForm<T extends Record<string, any>>(
+    object: T[],
+    options?: ClassTransformOptions
+  ): Record<string, any>[];
+  instanceToForm<T extends Record<string, any>>(
+    object: T | T[],
+    options?: ClassTransformOptions
+  ): Record<string, any> | Record<string, any>[] {
+    const executor = new TransformOperationExecutor(
+      TransformationType.CLASS_TO_FORM,
+      {
+        ...defaultOptions,
+        ...options,
+      }
+    );
+    return executor.transform(
+      undefined,
+      object,
+      undefined,
+      undefined,
+      undefined,
+      undefined
+    );
+  }
+
+  /**
    * Converts class (constructor) object to plain (literal) object.
    * Uses given plain object as source object (it means fills given plain object with data from class object).
    * Also works with arrays.

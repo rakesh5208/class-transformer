@@ -9,7 +9,7 @@
   "main": "./cjs/index.js",
   "module": "./esm5/index.js",
   "es2015": "./esm2015/index.js",
-  "typings": "./types/index.d.ts",
+  "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/nestjs/class-transformer.git"
@@ -36,7 +36,8 @@
     "lint:check": "eslint --max-warnings 0 --ext .ts src/",
     "test": "jest --coverage --verbose",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand --no-cache --coverage --verbose"
+    "test:ci": "jest --runInBand --no-cache --coverage --verbose",
+    "build:all": "npm run build:types && npm run build:cjs && npm run build:esm5 && npm run build:es2015 && node copy-dev-build.js"
   },
   "husky": {
     "hooks": {

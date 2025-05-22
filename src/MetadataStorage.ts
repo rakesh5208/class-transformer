@@ -111,6 +111,10 @@ export class MetadataStorage {
         return transformationType === TransformationType.CLASS_TO_PLAIN;
       }
 
+      if (metadata.options.toFormOnly === true) {
+        return transformationType === TransformationType.CLASS_TO_FORM;
+      }
+
       return true;
     });
   }
