@@ -277,3 +277,7 @@ export class ClassTransformer {
     return this.plainToInstance(cls, jsonObject, options);
   }
 }
+
+
+// export singleton instance
+export const classTransformer = new ClassTransformer()

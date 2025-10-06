@@ -1,12 +1,12 @@
-import { ClassTransformer } from './ClassTransformer';
+import { classTransformer } from './ClassTransformer';
 import { ClassConstructor, ClassTransformOptions } from './interfaces';
 
-export { ClassTransformer } from './ClassTransformer';
+// export { ClassTransformer } from './ClassTransformer';
 export * from './decorators';
 export * from './enums';
 export * from './interfaces';
 
-const classTransformer = new ClassTransformer();
+// const classTransformer = new ClassTransformer();
 
 /**
  * Converts class (constructor) object to plain (literal) object. Also works with arrays.
