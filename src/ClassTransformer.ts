@@ -4,6 +4,16 @@ import { TransformationType } from './enums';
 import { ClassConstructor, ClassTransformOptions } from './interfaces';
 
 export class ClassTransformer {
+
+  private static _instance:ClassTransformer;
+
+  static getInstance(): ClassTransformer {
+    if (!ClassTransformer._instance) {
+      ClassTransformer._instance = new ClassTransformer();
+    }
+    return ClassTransformer._instance;
+  }  
+
   // -------------------------------------------------------------------------
   // Public Methods
   // -------------------------------------------------------------------------
@@ -277,7 +287,3 @@ export class ClassTransformer {
     return this.plainToInstance(cls, jsonObject, options);
   }
 }
-
-
-// export singleton instance
-export const classTransformer = new ClassTransformer()
